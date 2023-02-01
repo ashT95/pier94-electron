@@ -2,7 +2,7 @@
 
 .main-wrapper {
   position: absolute;
-  top: 770px;
+  top: 768px;
   width: 1920px;
   height: 1080px;
   background: url("../../assets/images/control-attract-bg.png") no-repeat;
@@ -216,7 +216,7 @@
   position: absolute;
   width: 1920px;
   height: 1080px;
-  top: 770px;
+  top: 768px;
 }
 
 .fade.modal.show,
@@ -224,7 +224,7 @@
   position: absolute;
   width: 1920px;
   height: 1080px;
-  top: 770px;
+  top: 768px;
   transition: opacity 0.45s linear;
   -webkit-transition: opacity 0.45s linear;
   -moz-transition: opacity 0.45s linear;
