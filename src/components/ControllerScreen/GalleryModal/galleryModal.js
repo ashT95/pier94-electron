@@ -20,6 +20,7 @@ export default function GalleryModal(props) {
         <button className="galImg" onClick={() => handleClick(i)}>
           <img
             src={require(`../../../assets/images/control-gallery-thumb-0${i}.png`)}
+            key={`img${i}`}
           />
         </button>
       );
@@ -28,6 +29,7 @@ export default function GalleryModal(props) {
         <button className="galImg" onClick={() => handleClick(i)}>
           <img
             src={require(`../../../assets/images/control-gallery-thumb-${i}.png`)}
+            key={`img${i}`}
           />
         </button>
       );
@@ -55,6 +57,7 @@ export default function GalleryModal(props) {
         <img
           src={String(active).includes("gallery") ? SelectedImg : null}
           className={border}
+          key={border}
         />
       </Modal.Body>
     </Modal>

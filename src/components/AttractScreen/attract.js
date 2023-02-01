@@ -13,9 +13,7 @@ export default function Attract(props) {
   const [video, setVideo] = useState(null);
   const [galImg, setGalImg] = useState(null);
   const [tagImg, setTagImg] = useState(null);
-  const [loop, setLoop] = useState(true);
   const [imgBg, setImgBg] = useState(null);
-  const [fadeOut, setFadeOut] = useState(false);
 
   const handleImages = (num) => {
     if (num < 10) {
@@ -42,37 +40,31 @@ export default function Attract(props) {
       switch (active) {
         case "node1": {
           setVideo(BullPenVid);
-          setLoop(false);
           setTagImg("main-360-tag-office-suite");
           break;
         }
         case "node2": {
           setVideo(Stage06Vid);
-          setLoop(false);
           setTagImg("main-360-tag-stage6");
           break;
         }
         case "node3": {
           setVideo(HairMakeupVid);
-          setLoop(false);
           setTagImg("main-360-tag-hair-make-room");
           break;
         }
         case "node4": {
           setVideo(LoadingVid);
-          setLoop(false);
           setTagImg("main-360-tag-hallway");
           break;
         }
         case "node5": {
           setVideo(EntryVid);
-          setLoop(false);
           setTagImg("main-360-tag-reception");
           break;
         }
         case "pv": {
           setVideo(PvVid);
-          setLoop(false);
           setTagImg(null);
           break;
         }
@@ -81,7 +73,6 @@ export default function Attract(props) {
 
     return () => {
       setVideo(null);
-      setLoop(true);
       setGalImg(null);
       setTagImg(null);
     };
@@ -89,64 +80,63 @@ export default function Attract(props) {
 
   return (
     <div className="attract-wrapper">
-      
-        <video
-          src={AttractVid}
-          id={"video0"}
-          preload="auto"
-          autoPlay
-          muted="false"
-          loop
-          className="backgroundVid"
-        />
-      
+      <video
+        src={AttractVid}
+        id={"video0"}
+        preload="auto"
+        autoPlay
+        muted={false}
+        loop
+        className="backgroundVid"
+      />
+
       <div className={!video && !galImg ? "hidden" : "visible"}>
-      {video !== null && (
-        <div className="video-wrapper">
-          <div>
-            <video
-              src={video}
-              key={video}
-              id={"video1"}
-              preload="auto"
-              autoPlay
-              muted="false"
-              ref={videoRef}
-              className="videoPlaying"
-            />
-          </div>
-
-          {tagImg !== null && (
-            <div className="attract-img-view">
-              <img src={require(`../../assets/images/${tagImg}.png`)} />
-            </div>
-          )}
-        </div>
-      )}
-      
-      {galImg !== null && (
-        <div className="img-view">
-          {imgBg !== null && (
-            <CrossfadeImage
-              src={require(`../../assets/images/main-screen-gallery-${galImg}-bg.png`)}
-              className="bg-img-view"
-            />
-          )}
-          <div className="gal-img-view">
-            <CrossfadeImage
-              src={require(`../../assets/images/main-screen-gallery-${galImg}.png`)}
-            />
-          </div>
-
-          {tagImg !== null && (
-            <div className="tag-img-view">
-              <CrossfadeImage
-                src={require(`../../assets/images/main-gallery-tag-${tagImg}.png`)}
+        {video !== null && (
+          <div className="video-wrapper">
+            <div>
+              <video
+                src={video}
+                key={video}
+                id={"video1"}
+                preload="auto"
+                autoPlay
+                muted={false}
+                ref={videoRef}
+                className="videoPlaying"
               />
             </div>
-          )}
-        </div>
-      )}
+
+            {tagImg !== null && (
+              <div className="attract-img-view">
+                <img src={require(`../../assets/images/${tagImg}.png`)} />
+              </div>
+            )}
+          </div>
+        )}
+
+        {galImg !== null && (
+          <div className="img-view">
+            {imgBg !== null && (
+              <CrossfadeImage
+                src={require(`../../assets/images/main-screen-gallery-${galImg}-bg.png`)}
+                className="bg-img-view"
+              />
+            )}
+            <div className="gal-img-view">
+              <CrossfadeImage
+                src={require(`../../assets/images/main-screen-gallery-${galImg}.png`)}
+              />
+            </div>
+
+            {tagImg !== null && (
+              <div className="tag-img-view">
+                <CrossfadeImage
+                  src={require(`../../assets/images/main-gallery-tag-${tagImg}.png`)}
+                />
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

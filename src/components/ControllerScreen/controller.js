@@ -49,8 +49,8 @@ export default function Controller() {
   }
 
   return (
-    <div>
-      <div>
+    <div className="wrap">
+      <div className="attract-wrap">
         <Attract active={active} videoRef={videoRef} />
       </div>
       <div className="main-wrapper">

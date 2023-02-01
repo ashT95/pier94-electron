@@ -27,8 +27,14 @@
  */
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./app.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
+
+const func = async () => {
+    const response = await window.versions.ping()
+    console.log(response) // prints out 'pong'
+  }
+  
+  func()
