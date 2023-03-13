@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./controller.css";
 import Node from "./Nodes/node";
 import OfficeLabel from "../../assets/images/control-attract-360-button-office-suite.png";
@@ -42,6 +42,16 @@ export default function Controller() {
   const getId = (val) => {
     setActive(val);
   };
+
+  useEffect(() => {
+    let interval;
+
+    interval = setInterval(() => {
+      closeClick();
+    }, 60000 * 10);
+
+    return () => clearInterval(interval);
+  });
 
   const nodes = [];
   for (let i = 1; i < 6; i++) {
